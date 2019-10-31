@@ -78,14 +78,14 @@ function userPrompt() {
 //Randomize password
 
 function randomArray(array) {
-    var randomIndex = Math.floor(Math.random() * array.length) + 1;
+    var randomIndex = Math.floor(Math.random() * array.length);
     randomlySelectedArray = array[randomIndex];
 }
 
 // randomArray(characterTypes);
 
 function randomChar(arr) {
-    var randomIndex = Math.floor(Math.random() * arr.length) + 1
+    var randomIndex = Math.floor(Math.random() * arr.length);
     randomlySelectedCharacter = arr[randomIndex]
     console.log("random character: " + randomlySelectedCharacter);
 }
