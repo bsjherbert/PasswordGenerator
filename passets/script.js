@@ -19,7 +19,8 @@ var randomlySelectedArray;
 var randomlySelectedCharacter;
 
 //we initialize a variable that will hold our randomly generated password
-var password;
+var passwordArr =[];
+var password = "";
 
 
 //we create a function that gather information from the user
@@ -38,42 +39,47 @@ function userPrompt() {
         alert("Enter number between 8-128")
         //we also start the user info gathering over again
         userPrompt();
-    }
-
-    //we ask which charcter types they want
-    // console.log(passwordLength);
-    userUpperCase = confirm("Do you want uppercase letters?");
-    userLowerCase = confirm("Do you want lowercase letters?");
-    userNumbers = confirm("Do you want numbers?");
-    userSpecialChar = confirm("Do you want speical characters?");
-
-    //if they select one of the character types, we push it to the character types array
-    if (userUpperCase === true) {
-        characterTypes.push(upperCase);
-    }
-    if (userLowerCase === true) {
-        characterTypes.push(lowerCase);
-    }
-    if (userNumbers === true) {
-        characterTypes.push(numbers);
-    }
-    if (userSpecialChar === true) {
-        characterTypes.push(specialCharacters);
-    }
-    //ensure that the user has selected at least one character type
-    if (characterTypes.length < 2) {
-        alert("Select more than 1 character type for security")
-        userPrompt()
     } else {
-        console.log(characterTypes);
-        randomArray(characterTypes);
-        randomChar(randomlySelectedArray);
+
+        //we ask which charcter types they want
+        // console.log(passwordLength);
+        userUpperCase = confirm("Do you want uppercase letters?");
+        userLowerCase = confirm("Do you want lowercase letters?");
+        userNumbers = confirm("Do you want numbers?");
+        userSpecialChar = confirm("Do you want speical characters?");
+
+        //if they select one of the character types, we push it to the character types array
+        if (userUpperCase === true) {
+            characterTypes.push(upperCase);
+        }
+        if (userLowerCase === true) {
+            characterTypes.push(lowerCase);
+        }
+        if (userNumbers === true) {
+            characterTypes.push(numbers);
+        }
+        if (userSpecialChar === true) {
+            characterTypes.push(specialCharacters);
+        }
+        //ensure that the user has selected at least one character type
+        if (characterTypes.length < 2) {
+            alert("Select more than 1 character type for security")
+            userPrompt()
+        } else {
+            // console.log(characterTypes);
+            for (let i = 0; i < passwordLength; i++) {
+                randomArray(characterTypes);
+                passwordArr.push(randomChar(randomlySelectedArray))
+            }
+            password = passwordArr.join("");
+            alert(password);
+        }
+
+        //displays selected character types in the console
+        // console.log(characterTypes)
     }
 
-    //displays selected character types in the console
-    // console.log(characterTypes)
 }
-
 
 //Randomize password
 
@@ -82,12 +88,11 @@ function randomArray(array) {
     randomlySelectedArray = array[randomIndex];
 }
 
-// randomArray(characterTypes);
-
 function randomChar(arr) {
     var randomIndex = Math.floor(Math.random() * arr.length);
     randomlySelectedCharacter = arr[randomIndex]
     console.log("random character: " + randomlySelectedCharacter);
+    return randomlySelectedCharacter;
 }
 
 
