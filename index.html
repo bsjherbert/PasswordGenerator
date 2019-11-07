@@ -23,19 +23,23 @@
         <!--This container holds all the main section items-->
         <section class="main-section">
             <h2>Generate A Password</h2>
-
-            <form>
+            <form id="passwordForm">
                 <div id="formGroup" class="form-group3">
 
+
                     <input type="message" class="form-control" id="messageInput" placeholder="Your Secure Password">
+
+
+                </div>
+
+                <div class="buttons">
+                    <!-- <input type=submit" class="btn-generate btn-primary" onclick="userPrompt()"
+                        value="Generate Password"> -->
+                    <button type="button" class="btn-generate btn-primary" onClick="userPrompt()">Generate
+                        Password</button>
+                    <button type="submit" class="btn-copy btn-secondary">Copy to Clipboard</button>
                 </div>
             </form>
-
-            <div class="buttons">
-                <button type="submit" class="btn-generate btn-primary" onClick="userPrompt()">Generate Password</button>
-                <button type="submit" class="btn-copy btn-secondary">Copy to Clipboard</button>
-            </div>
-
         </section>
 
     </div>

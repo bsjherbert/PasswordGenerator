@@ -25,6 +25,11 @@ var password = "";
 
 //we create a function that gather information from the user
 function userPrompt() {
+    password = '';
+    document.getElementById("messageInput").value = "";
+
+
+
     //we reset the desired character types, in case the user wants to generate multiple passwords
     characterTypes = [];
     randomlySelectedArray = "";
@@ -69,9 +74,9 @@ function userPrompt() {
             // console.log(characterTypes);
             for (let i = 0; i < passwordLength; i++) {
                 randomArray(characterTypes);
-                passwordArr.push(randomChar(randomlySelectedArray));
+                password += randomChar(randomlySelectedArray);
             }
-            password = passwordArr.join("");
+            // password = passwordArr.join("");
             // alert(password);
             document.getElementById("messageInput").value = password;
 
