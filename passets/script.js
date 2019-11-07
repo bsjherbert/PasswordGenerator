@@ -19,7 +19,7 @@ var randomlySelectedArray;
 var randomlySelectedCharacter;
 
 //we initialize a variable that will hold our randomly generated password
-var passwordArr =[];
+var passwordArr = [];
 var password = "";
 
 
@@ -69,23 +69,29 @@ function userPrompt() {
             // console.log(characterTypes);
             for (let i = 0; i < passwordLength; i++) {
                 randomArray(characterTypes);
-                passwordArr.push(randomChar(randomlySelectedArray))
+                passwordArr.push(randomChar(randomlySelectedArray));
             }
             password = passwordArr.join("");
-            alert(password);
+            // alert(password);
+            document.getElementById("messageInput").value = password;
+
+
+            // function myFunction() {
+            //     document.getElementById("messageInput").reset();
+
         }
 
-        //displays selected character types in the console
-        // console.log(characterTypes)
     }
-
 }
+
+
 
 //Randomize password
 
 function randomArray(array) {
     var randomIndex = Math.floor(Math.random() * array.length);
     randomlySelectedArray = array[randomIndex];
+
 }
 
 function randomChar(arr) {
@@ -93,6 +99,8 @@ function randomChar(arr) {
     randomlySelectedCharacter = arr[randomIndex]
     console.log("random character: " + randomlySelectedCharacter);
     return randomlySelectedCharacter;
+
+
 }
 
 
